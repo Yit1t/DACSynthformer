@@ -86,11 +86,11 @@ def create_excel_from_files(directory, output_excel):
     print(f"Excel file '{output_excel}' has been created with {len(df)} records.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
+    """parser = argparse.ArgumentParser(
         description="Process .dac files to create an Excel summary with parameters labeled as 'Param1', 'Param2', etc."
     )
     parser.add_argument('directory', type=str, help="Directory where .dac files are located")
     parser.add_argument('output_excel', type=str, help="Output Excel file path and filename")
-    args = parser.parse_args()
+    args = parser.parse_args()"""
 
-    create_excel_from_files(args.directory, args.output_excel)
+    create_excel_from_files('testdata/dac-train', 'testdata/dac-train.xlsx')
