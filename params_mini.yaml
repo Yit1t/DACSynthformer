@@ -7,25 +7,32 @@ validator_data_frames: "testdata/dac-val.xlsx"
 
 
 TransformerClass: "RopeCondDACTransformer" 
-vocab_size: 1024
-num_tokens: 4
 
-cond_params: 1 #1 (not counting the classes)
-model_size: 64 # must be divisible by num_heads
+vocab_size: 1024 # dont mess with this
+num_tokens: 4 #codeblocks
 
-Ti: 86 # 172 #86
-Tt: 430 # must match the length of the sequences in the batch
-batch_size: 4  #**
+cond_params: 1 #1 (not counting the classes) not touch this!
+model_size: 128 # must be divisible by num_heads , you can change this! 128 works well
+
+Ti: 86 # 172 #86 #size of the inference sliding window and mask
+Tt: 831 # must match the length of the sequences in the batch # length of the training data 430 samples 
+batch_size: 4   #**
 
 
-num_layers: 2 #**
-num_heads: 4 #8 # 8 # embed_size must be divisible by num_heads
-forward_expansion: 2 #4 #4
+num_layers: 2 #**  , number of transformer layers
+num_heads: 8 #8 # 8 # embed_size must be divisible by num_heads
+forward_expansion: 2 #4 #4 
 dropout_rate: 0.2
 learning_rate: 0.0005
 
+<<<<<<< Updated upstream
 num_epochs: 10 ### 800 
 
 ErrorLogRate: 2 #2 ### 10
 checkpoint_interval: 5 ###50 # 25
+=======
+num_epochs: 50 ### 800 you can try 200
+>>>>>>> Stashed changes
 
+ErrorLogRate: 2 #2 ### 10 # how often we log the errors 
+checkpoint_interval: 10 ###50 # 25 #how often we make a checkpoint
